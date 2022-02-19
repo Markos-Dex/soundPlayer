@@ -9,9 +9,11 @@ var bgmPlayer = null
 func _ready():
 	bgmPlayer = $bgm/bgmPlayer
 	bgmPlayer.volume_db = 1
-func play(audio:AudioStream,isBgm:bool):
+func play(audio:AudioStream,isBgm:bool,db=null):
 	if isBgm:
 		bgmPlayer.stream = audio
+		if not db: bgmPlayer.volume_db = 1
+		else: bgmPlayer.volume_db = db
 		bgmPlayer.play()
 		if not bgmPlayer.is_playing():
 			print('This test failed. No cake.')
@@ -19,7 +21,10 @@ func play(audio:AudioStream,isBgm:bool):
 		var sfxPlayer = sfxPlayerScene.instance()
 		sfx.add_child(sfxPlayer)
 		sfxPlayer.stream = audio
-		sfxPlayer.volume_db = 1
+		if not db:
+			sfxPlayer.volume_db = 1
+		else:
+			sfxPlayer.volume_db = db
 		sfxPlayer.play()
 func pause():
 	var sfxChildren = sfx.get_children()
