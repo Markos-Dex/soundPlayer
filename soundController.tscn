@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://soundController.gd" type="Script" id=1]
-[ext_resource path="res://bgmPlayer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sfx.tscn" type="PackedScene" id=3]
+[ext_resource path="res://soundPlayer/soundController.gd" type="Script" id=1]
+[ext_resource path="res://soundPlayer/bgmPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://soundPlayer/sfx.tscn" type="PackedScene" id=3]
 
 [node name="soundController" type="Node"]
 script = ExtResource( 1 )
 sfxPlayerScene = ExtResource( 3 )
+bgmPlayerScene = ExtResource( 2 )
 
 [node name="bgm" type="Node" parent="."]
 
