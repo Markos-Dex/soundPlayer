@@ -9,7 +9,7 @@ var bgmPlayer = null
 func _ready():
 	bgmPlayer = $bgm/bgmPlayer
 	bgmPlayer.volume_db = 1
-func play(audio:AudioStream,isBgm:bool,db=null):
+func play(audio:AudioStream,isBgm=false,db=null):
 	if isBgm:
 		bgmPlayer.stream = audio
 		if not db: bgmPlayer.volume_db = 1
